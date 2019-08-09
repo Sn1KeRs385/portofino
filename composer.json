@@ -1,0 +1,21 @@
+{
+  "name" : "wrong-about-everything/portofino",
+  "description" : "Object-oriented php Spreadsheet implementation",
+  "autoload": {
+    "psr-4": {
+      "Portofino\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Portofino\\Tests\\": "test/"
+    }
+  },
+  "require": {
+    "php": "^7.1",
+    "phpoffice/phpspreadsheet": "^1.7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.3"
+  }
+}
