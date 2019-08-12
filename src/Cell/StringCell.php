@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Portofino\Cell;
 
 use Portofino\Cell;
+use Portofino\Style;
+use Portofino\Style\Plain;
 
 class StringCell implements Cell
 {
@@ -15,13 +17,13 @@ class StringCell implements Cell
         $this->value = $value;
     }
 
-    public function value(): string
+    public function contents(): string
     {
         return $this->value;
     }
 
-    public function styles(): array
+    public function style(): Style
     {
-        return [];
+        return new Plain();
     }
 }

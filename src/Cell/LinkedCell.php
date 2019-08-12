@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Portofino\Cell;
 
 use Portofino\Cell;
+use Portofino\Style;
+use Portofino\Style\Merged;
+use Portofino\Style\Linked;
 
 class LinkedCell implements Cell
 {
@@ -17,17 +20,17 @@ class LinkedCell implements Cell
         $this->url = $url;
     }
 
-    public function value()
+    public function contents(): string
     {
-        return $this->cell->value();
+        return $this->cell->contents();
     }
 
-    public function styles(): array
+    public function style(): Style
     {
         return
-            array_merge(
-                $this->cell->styles(),
-                ['url' => $this->url]
+            new Merged(
+                $this->cell->style(),
+                new Linked($this->url)
             );
     }
 }

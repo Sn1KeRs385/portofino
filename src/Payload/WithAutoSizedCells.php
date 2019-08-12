@@ -6,17 +6,9 @@ namespace Portofino\Payload;
 
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use Portofino\Payload;
 
-class WithAutoSizedCells implements Payload
+class WithAutoSizedCells
 {
-    private $payload;
-
-    public function __construct(Payload $payload)
-    {
-        $this->payload = $payload;
-    }
-
     public function value(): Spreadsheet
     {
         $spreadsheet = $this->payload->value();

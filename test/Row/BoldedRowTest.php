@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Portofino\Tests\Row;
 
+use Portofino\Cell;
 use Portofino\Cell\StringCell;
 use Portofino\Row\BoldedRow;
 use PHPUnit\Framework\TestCase;
@@ -21,7 +22,8 @@ class BoldedRowTest extends TestCase
             ))
                 ->value();
 
-        $this->assertEquals('cell1', $result[0]->value());
-        $this->assertEquals(['font-weight' => 'bold'], $result[0]->styles());
+        /** @var $result Cell[] */
+        $this->assertEquals('cell1', $result[0]->contents());
+        $this->assertTrue($result[0]->style()->fontBold());
     }
 }

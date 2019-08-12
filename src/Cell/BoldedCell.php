@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Portofino\Cell;
 
 use Portofino\Cell;
+use Portofino\Style;
+use Portofino\Style\Merged;
+use Portofino\Style\FontBold;
 
 class BoldedCell implements Cell
 {
@@ -15,17 +18,17 @@ class BoldedCell implements Cell
         $this->cell = $cell;
     }
 
-    public function value()
+    public function contents(): string
     {
-        return $this->cell->value();
+        return $this->cell->contents();
     }
 
-    public function styles(): array
+    public function style(): Style
     {
         return
-            array_merge(
-                $this->cell->styles(),
-                ['font-weight' => 'bold']
+            new Merged(
+                $this->cell->style(),
+                new FontBold()
             );
     }
 }

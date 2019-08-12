@@ -6,6 +6,6 @@ namespace Portofino;
 
 interface Cell
 {
-    public function value();
-    public function styles(): array;
+    public function contents(): string;
+    public function style(): Style;
 }

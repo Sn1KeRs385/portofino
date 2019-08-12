@@ -6,6 +6,6 @@ namespace Portofino;
 
 interface Sheet
 {
-    public function value(): iterable;
+    public function value(): string ;
     public function name(): string;
 }
