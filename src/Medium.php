@@ -6,5 +6,5 @@ namespace Portofino;
 
 interface Medium
 {
-    public function contents(string $name, array $cells): string;
+    public function contents(Sheet $sheet): string;
 }

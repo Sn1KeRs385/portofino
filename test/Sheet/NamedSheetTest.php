@@ -10,7 +10,6 @@ use Portofino\Cell\StringCell;
 use Portofino\Header\BoldedHeader;
 use Portofino\Row\DefaultRow;
 use Portofino\Sheet\NamedSheet;
-use Portofino\Tests\Medium\Fake;
 
 class NamedSheetTest extends TestCase
 {
@@ -18,7 +17,6 @@ class NamedSheetTest extends TestCase
     {
         $result =
             (new NamedSheet(
-                new Fake(),
                 $this->sheetName(),
                 new BoldedHeader(
                     new StringCell('col1'),
@@ -37,8 +35,23 @@ class NamedSheetTest extends TestCase
         $this->assertEquals($result->name(), $this->sheetName());
 
         $this->assertEquals(
-            "col1,col2\ncell1-1,cell1-2\ncell2-1,cell2-2",
-            $result->value()
+            [
+                ['col1', 'col2'],
+                ['cell1-1', 'cell1-2'],
+                ['cell2-1', 'cell2-2'],
+            ],
+            array_map(
+                function (array $row) {
+                    return
+                        array_map(
+                            function (Cell $cell) {
+                                return $cell->content()->value();
+                            },
+                            $row
+                        );
+                },
+                $result->value()
+            )
         );
     }
 

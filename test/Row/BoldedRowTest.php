@@ -23,7 +23,7 @@ class BoldedRowTest extends TestCase
                 ->value();
 
         /** @var $result Cell[] */
-        $this->assertEquals('cell1', $result[0]->contents());
-        $this->assertTrue($result[0]->style()->fontBold());
+        $this->assertEquals('cell1', $result[0]->content()->value());
+        $this->assertTrue($result[0]->style()->font()->isBold());
     }
 }

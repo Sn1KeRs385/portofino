@@ -14,7 +14,7 @@ class BoldedCellTest extends TestCase
     {
         $result = new BoldedCell(new StringCell('test'));
 
-        $this->assertEquals('test', $result->contents());
-        $this->assertTrue($result->style()->fontBold());
+        $this->assertEquals('test', $result->content()->value());
+        $this->assertTrue($result->style()->font()->isBold());
     }
 }

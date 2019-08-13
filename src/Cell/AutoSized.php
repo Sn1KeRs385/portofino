@@ -6,9 +6,9 @@ namespace Portofino\Cell;
 
 use Portofino\Cell;
 use Portofino\Style;
-use Portofino\Style\WithBoldedFont;
+use Portofino\Style\WithAutoSizing;
 
-class BoldedCell implements Cell
+class AutoSized implements Cell
 {
     private $cell;
 
@@ -25,6 +25,8 @@ class BoldedCell implements Cell
     public function style(): Style
     {
         return
-            new WithBoldedFont($this->cell->style());
+            new WithAutoSizing(
+                $this->cell->style()
+            );
     }
 }

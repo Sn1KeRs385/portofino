@@ -7,6 +7,7 @@ namespace Portofino\Cell;
 use Portofino\Cell;
 use Portofino\Style;
 use Portofino\Style\Plain;
+use Portofino\Cell\Content\StringContent;
 
 class StringCell implements Cell
 {
@@ -17,9 +18,10 @@ class StringCell implements Cell
         $this->value = $value;
     }
 
-    public function contents(): string
+    public function content(): Content
     {
-        return $this->value;
+        return
+            new StringContent($this->value);
     }
 
     public function style(): Style

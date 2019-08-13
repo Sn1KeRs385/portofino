@@ -6,10 +6,11 @@ namespace Portofino\Tests\Medium;
 
 use Portofino\Cell;
 use Portofino\Medium;
+use Portofino\Sheet;
 
 class Fake implements Medium
 {
-    public function contents(string $name, array $cells): string
+    public function contents(Sheet $sheet): string
     {
         return
             implode(
@@ -22,13 +23,13 @@ class Fake implements Medium
                                 array_map(
                                     function (Cell $cell) {
                                         return
-                                            $cell->contents();
+                                            $cell->content();
                                     },
                                     $row
                                 )
                             );
                     },
-                    $cells
+                    $sheet->value()
                 )
             );
     }

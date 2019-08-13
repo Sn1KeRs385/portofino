@@ -5,21 +5,23 @@ declare(strict_types=1);
 namespace Portofino\Style;
 
 use Portofino\Style;
+use Portofino\Style\Font\DefaultFont;
+use Portofino\Style\Color\DefaultBackgroundColor;
 
 class Plain implements Style
 {
-    public function fontBold(): bool
+    public function font(): Font
     {
-        return false;
+        return new DefaultFont();
     }
 
-    public function linked(): bool
+    public function backgroundColor(): Color
     {
-        return false;
+        return new DefaultBackgroundColor();
     }
 
-    public function url(): string
+    public function autoSized(): bool
     {
-        return '';
+        return false;
     }
 }

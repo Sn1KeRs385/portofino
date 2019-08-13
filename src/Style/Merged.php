@@ -17,25 +17,22 @@ class Merged implements Style
         $this->newStyle = $newStyle;
     }
 
-    public function fontBold(): bool
+    public function backgroundColor(): Color
     {
-        return
-            $this->originalStyle->fontBold()
-            ||
-            $this->newStyle->fontBold();
+        return $this->newStyle->backgroundColor();
     }
 
-    public function linked(): bool
+    public function font(): Font
     {
         return
-            $this->originalStyle->linked()
-            ||
-            $this->newStyle->linked();
+            $this->newStyle->font();
     }
 
-    public function url(): string
+    public function autoSized(): bool
     {
         return
-            $this->newStyle->url() ?? $this->originalStyle->url();
+            $this->originalStyle->autoSized()
+            ||
+            $this->newStyle->autoSized();
     }
 }
