@@ -11,7 +11,7 @@ class WithUrl implements Content
     private $url;
     private $content;
 
-    public function __construct(string $url, Content $content)
+    public function __construct(Url $url, Content $content)
     {
         $this->url = $url;
         $this->content = $content;
@@ -22,7 +22,7 @@ class WithUrl implements Content
         return $this->content->value();
     }
 
-    public function url(): string
+    public function url(): Url
     {
         return $this->url;
     }

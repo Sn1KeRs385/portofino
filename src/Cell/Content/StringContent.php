@@ -21,7 +21,7 @@ class StringContent implements Content
         return $this->value;
     }
 
-    public function url(): string
+    public function url(): Url
     {
         throw new Exception('String content has not url');
     }

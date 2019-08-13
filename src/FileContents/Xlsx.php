@@ -47,7 +47,7 @@ class Xlsx implements FileContents
                         ->setValue($cell->content()->value());
 
                 if ($cell->content()->isLink()) {
-                    $activeCell->setHyperlink(new Hyperlink($cell->content()->url()));
+                    $activeCell->setHyperlink(new Hyperlink($cell->content()->url()->value()));
                 }
 
                 if ($cell->style()->font()->isBold()) {

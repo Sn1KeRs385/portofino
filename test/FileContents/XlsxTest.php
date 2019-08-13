@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Portofino\Cell\BoldedCell;
 use Portofino\Cell\ColoredBackground;
 use Portofino\Cell\ColoredFont;
+use Portofino\Cell\Content\Url\FromString;
 use Portofino\Cell\LinkedCell;
 use Portofino\Cell\PlainCell;
 use Portofino\FileContents\Xlsx;
@@ -52,7 +53,7 @@ class XlsxTest extends TestCase
                         ),
                         new DefaultRow(
                             new BoldedCell(new PlainCell('cell2-1')),
-                            new LinkedCell(new PlainCell('Погода'), 'https://yandex.ru/pogoda/moscow'),
+                            new LinkedCell(new PlainCell('Погода'), new FromString('https://yandex.ru/pogoda/moscow')),
                             new PlainCell('veeeeeery long cell asdf asdf asdf asdf asdf ads f ads fa sdf ads fa')
                         )
                     )
