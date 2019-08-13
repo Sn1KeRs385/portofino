@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Portofino\Tests\Row;
 
 use Portofino\Cell;
-use Portofino\Cell\StringCell;
+use Portofino\Cell\PlainCell;
 use Portofino\Row\BoldedRow;
 use PHPUnit\Framework\TestCase;
 use Portofino\Row\DefaultRow;
@@ -17,7 +17,7 @@ class BoldedRowTest extends TestCase
         $result =
             (new BoldedRow(
                 new DefaultRow(
-                    new StringCell('cell1')
+                    new PlainCell('cell1')
                 )
             ))
                 ->value();

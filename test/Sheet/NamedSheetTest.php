@@ -6,7 +6,7 @@ namespace Portofino\Tests\Sheet;
 
 use PHPUnit\Framework\TestCase;
 use Portofino\Cell;
-use Portofino\Cell\StringCell;
+use Portofino\Cell\PlainCell;
 use Portofino\Header\BoldedHeader;
 use Portofino\Row\DefaultRow;
 use Portofino\Sheet\NamedSheet;
@@ -19,16 +19,16 @@ class NamedSheetTest extends TestCase
             (new NamedSheet(
                 $this->sheetName(),
                 new BoldedHeader(
-                    new StringCell('col1'),
-                    new StringCell('col2')
+                    new PlainCell('col1'),
+                    new PlainCell('col2')
                 ),
                 new DefaultRow(
-                    new StringCell('cell1-1'),
-                    new StringCell('cell1-2')
+                    new PlainCell('cell1-1'),
+                    new PlainCell('cell1-2')
                 ),
                 new DefaultRow(
-                    new StringCell('cell2-1'),
-                    new StringCell('cell2-2')
+                    new PlainCell('cell2-1'),
+                    new PlainCell('cell2-2')
                 )
             ));
 

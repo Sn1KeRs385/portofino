@@ -24,15 +24,15 @@ class WithBoldedFont implements Style
             );
     }
 
-    public function backgroundColor(): Color
+    public function background(): Background
     {
         return
-            $this->style->backgroundColor();
+            $this->style->background();
     }
 
-    public function autoSized(): bool
+    public function width(): Width
     {
         return
-            $this->style->autoSized();
+            $this->style->width();
     }
 }

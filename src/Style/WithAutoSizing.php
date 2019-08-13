@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Portofino\Style;
 
 use Portofino\Style;
+use Portofino\Style\Width\AutoSized;
 
 class WithAutoSizing implements Style
 {
@@ -20,13 +21,13 @@ class WithAutoSizing implements Style
         return $this->style->font();
     }
 
-    public function backgroundColor(): Color
+    public function background(): Background
     {
-        return $this->style->backgroundColor();
+        return $this->style->background();
     }
 
-    public function autoSized(): bool
+    public function width(): Width
     {
-        return true;
+        return new AutoSized();
     }
 }

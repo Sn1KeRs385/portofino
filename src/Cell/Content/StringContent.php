@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Portofino\Cell\Content;
 
 use Portofino\Cell\Content;
+use Exception;
 
 class StringContent implements Content
 {
@@ -22,7 +23,7 @@ class StringContent implements Content
 
     public function url(): string
     {
-        return '';
+        throw new Exception('String content has not url');
     }
 
     public function isLink(): bool

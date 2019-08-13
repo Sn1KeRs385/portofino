@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Portofino\Style;
 
 use Portofino\Style;
+use Portofino\Style\Background\ColoredBackground;
 
 class WithColoredBackground implements Style
 {
@@ -22,13 +23,17 @@ class WithColoredBackground implements Style
         return $this->style->font();
     }
 
-    public function backgroundColor(): Color
+    public function background(): Background
     {
-        return $this->color;
+        return
+            new ColoredBackground(
+                $this->color,
+                $this->style->background()
+            );
     }
 
-    public function autoSized(): bool
+    public function width(): Width
     {
-        return $this->style->autoSized();
+        return $this->style->width();
     }
 }

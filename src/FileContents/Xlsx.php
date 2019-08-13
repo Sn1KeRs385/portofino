@@ -2,38 +2,40 @@
 
 declare(strict_types=1);
 
-namespace Portofino\Medium;
+namespace Portofino\FileContents;
 
 use PhpOffice\PhpSpreadsheet\Cell\Hyperlink;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
-use Portofino\Cell;
-use Portofino\Medium;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx as XlsxWriter;
+use Portofino\Cell;
+use Portofino\FileContents;
 use Portofino\Sheet;
 
-class Xlsx implements Medium
+class Xlsx implements FileContents
 {
     private $spreadsheet;
+    private $sheet;
 
-    public function __construct()
+    public function __construct(Sheet $sheet)
     {
         $this->spreadsheet = new Spreadsheet();
+        $this->sheet = $sheet;
     }
 
-    public function contents(Sheet $sheet): string
+    public function value(): string
     {
         $activeSheet = $this->spreadsheet->getActiveSheet();
 
-        $activeSheet->setTitle($sheet->name());
+        $activeSheet->setTitle($this->sheet->name());
 
         $namedColumn = range('A', 'Z');
 
         $rowNumber = 1;
 
         /** @var array $row */
-        foreach ($sheet->value() as $row) {
+        foreach ($this->sheet->value() as $row) {
             $columnNumber = 0;
             /** @var Cell $cell */
             foreach ($row as $cell) {
@@ -54,7 +56,7 @@ class Xlsx implements Medium
                         ->applyFromArray(['font' => ['bold' => true]]);
                 }
 
-                if ($cell->style()->autoSized()) {
+                if ($cell->style()->width()->isAutoSized()) {
                     $activeSheet
                         ->getColumnDimension($activeCell->getColumn())
                         ->setAutoSize(true);
@@ -67,7 +69,7 @@ class Xlsx implements Medium
                         ->setColor(new Color($cell->style()->font()->color()->value()));
                 }
 
-                if ($cell->style()->backgroundColor()->isSet()) {
+                if ($cell->style()->background()->color()->isSet()) {
                     $activeCell
                         ->getStyle()
                         ->getFill()
@@ -77,7 +79,7 @@ class Xlsx implements Medium
                         ->getStyle($coordinate)
                         ->getFill()
                         ->getStartColor()
-                        ->setARGB($cell->style()->backgroundColor()->value());
+                        ->setARGB($cell->style()->background()->color()->value());
                 }
 
                 $columnNumber++;

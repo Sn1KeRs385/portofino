@@ -13,6 +13,7 @@ class LinkedCell implements Cell
     private $cell;
     private $url;
 
+    // todo string -> interface Url
     public function __construct(Cell $cell, string $url)
     {
         $this->cell = $cell;

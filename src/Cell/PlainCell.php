@@ -6,10 +6,10 @@ namespace Portofino\Cell;
 
 use Portofino\Cell;
 use Portofino\Style;
-use Portofino\Style\Plain;
+use Portofino\Style\DefaultStyle;
 use Portofino\Cell\Content\StringContent;
 
-class StringCell implements Cell
+class PlainCell implements Cell
 {
     private $value;
 
@@ -26,6 +26,6 @@ class StringCell implements Cell
 
     public function style(): Style
     {
-        return new Plain();
+        return new DefaultStyle();
     }
 }
