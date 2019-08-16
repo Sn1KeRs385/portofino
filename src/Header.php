@@ -6,5 +6,5 @@ namespace Portofino;
 
 interface Header
 {
-    public function value(): iterable;
+    public function value(): array;
 }

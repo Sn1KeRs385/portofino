@@ -6,5 +6,5 @@ namespace Portofino;
 
 interface Row
 {
-    public function value(): iterable;
+    public function value(): array;
 }

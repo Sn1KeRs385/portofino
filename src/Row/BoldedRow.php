@@ -17,7 +17,7 @@ class BoldedRow implements Row
         $this->row = $row;
     }
 
-    public function value(): iterable
+    public function value(): array
     {
         return
             array_map(

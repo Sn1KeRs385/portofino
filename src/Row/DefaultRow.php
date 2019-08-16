@@ -16,7 +16,7 @@ class DefaultRow implements Row
         $this->cells = $cells;
     }
 
-    public function value(): iterable
+    public function value(): array
     {
         return $this->cells;
     }

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Portofino\Header;
+namespace Portofino\Row;
 
-use Portofino\Header;
+use Portofino\Row;
 
-class EmptyHeader implements Header
+class EmptyRow implements Row
 {
     public function value(): array
     {

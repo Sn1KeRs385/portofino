@@ -17,7 +17,7 @@ class BoldedHeader implements Header
         $this->cells = $cells;
     }
 
-    public function value(): iterable
+    public function value(): array
     {
         return
             array_map(
